@@ -4,7 +4,7 @@
  - [Host server setup](#host-server-setup) 
  - [Building the application](#building-the-application-to-fork-it-or-whatever)
 ## Overview
-The Join Notifier Discord Bot main functionality is to simply message in a text channel when a user joins or leaves a voice channel. That way, server members will receive a notification from the text channel that someone joined or left the video channel.
+The Join Notifier Discord Bot's main functionality is to simply message in a text channel when a user joins or leaves a voice channel. That way, server members will receive a notification from the text channel that someone joined or left the video channel.
 
 As of this writing, the minimum viable product (MVP) is done. Join Notifier will message what user joins or leaves ANY audio channel in the specified text channel. The text channel ID will be specified on the server hosting Join Notifier as an environment variable.
 
