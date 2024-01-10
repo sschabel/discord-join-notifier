@@ -18,38 +18,40 @@ In order to get Join Notifier working you must setup the following environment v
 |JOIN_NOTIFIER_TOKEN|You'll have to get this when you create your custom app in the Discord Developer Portal|
 
 Then, since Join Notifier is a Spring Boot application, you can run it using the following command in a console:
-
-``java -jar join-notifier-<version>.jar``
+```sh
+java -jar join-notifier-<version>.jar
+```
 
 For example:
-
-``java -jar join-notifier-0.0.1.jar``
+```sh
+java -jar join-notifier-0.0.1.jar
+```
 
 If you have Apache Maven installed, you could run it with the following command:
-
-``mvn spring-boot:run``
+```sh
+mvn spring-boot:run
+```
 
 ## Building the application (to fork it or whatever)
 1. You must have Apache Maven installed and setup properly on your machine.
 2. You must have Java 17 or later installed and setup on your machine.
 3. You need to setup the environment variables specified in the Host server setup section above (unless you modify the code to not use those environment variables)
 4. Run the following Apache Maven command:
-    
-    ``mvn clean package``
+    ```sh
+    mvn clean package
+    ```
 
 ## Running in Docker
 1. Install Docker on your machine.
 2. Build the image from the Dockerfile contained in the root directory of this repository. See below for an example command:
-   
-   ``
+   ```sh
    sudo docker build --tag=discord-join-notifier:latest
-   ``
+   ```
 3. Run the container using the image you created. See below for an example Linux terminal command with environment variables passed from the bare metal host machine:
-    
-    ``
+    ```sh
     sudo docker run -d -e JOIN_NOTIFIER_TEXT_CHANNEL_ID=$JOIN_NOTIFIER_TEXT_CHANNEL_ID \
     -e JOIN_NOTIFIER_TOKEN=$JOIN_NOTIFIER_TOKEN \
     -p 80:3000 \
     --name join-notifier discord-join-notifier
-    ``
+    ```
     
