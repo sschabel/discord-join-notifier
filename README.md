@@ -3,6 +3,7 @@
  - [Overview](#overview) 
  - [Host server setup](#host-server-setup) 
  - [Building the application](#building-the-application-to-fork-it-or-whatever)
+ - [Running in Docker](#running-in-docker)
 ## Overview
 The Join Notifier Discord Bot's main functionality is to simply message in a text channel when a user joins or leaves a voice channel. That way, server members will receive a notification from the text channel that someone joined or left the video channel.
 
@@ -14,8 +15,8 @@ The host server must have Java 17 or later installed in order to run Join Notifi
 In order to get Join Notifier working you must setup the following environment variables on the machine it will run on:
 |Name|Description|
 |----|-------------|
-|JOIN_NOTIFIER_TEXT_CHANNEL_ID|You can get this ID by right clicking the text channel you want join notifier to message in|
-|JOIN_NOTIFIER_TOKEN|You'll have to get this when you create your custom app in the Discord Developer Portal|
+|JOIN_NOTIFIER_TEXT_CHANNEL_ID|You can get this ID by right clicking the text channel you want join notifier to message in.|
+|JOIN_NOTIFIER_TOKEN|You'll have to get this when you create your custom app in the Discord Developer Portal (https://discord.com/developers).|
 
 Then, since Join Notifier is a Spring Boot application, you can run it using the following command in a console:
 ```sh
@@ -33,8 +34,8 @@ mvn spring-boot:run
 ```
 
 ## Building the application (to fork it or whatever)
-1. You must have Apache Maven installed and setup properly on your machine.
-2. You must have Java 17 or later installed and setup on your machine.
+1. You must have Apache Maven (https://maven.apache.org/) installed and setup properly on your machine.
+2. You must have Java 17 (https://openjdk.org/) or later installed and setup on your machine.
 3. You need to setup the environment variables specified in the Host server setup section above (unless you modify the code to not use those environment variables)
 4. Run the following Apache Maven command:
     ```sh
@@ -42,7 +43,7 @@ mvn spring-boot:run
     ```
 
 ## Running in Docker
-1. Install Docker on your machine.
+1. Install Docker on your machine (https://www.docker.com/). 
 2. Build the image from the Dockerfile contained in the root directory of this repository. See below for an example command:
    ```sh
    sudo docker build --tag=discord-join-notifier:latest
