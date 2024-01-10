@@ -54,4 +54,11 @@ mvn spring-boot:run
     -p 80:3000 \
     --name join-notifier discord-join-notifier
     ```
+    or if you want to always have the container restarted:
+    ```sh
+    sudo docker run -d -e JOIN_NOTIFIER_TEXT_CHANNEL_ID=$JOIN_NOTIFIER_TEXT_CHANNEL_ID \
+    -e JOIN_NOTIFIER_TOKEN=$JOIN_NOTIFIER_TOKEN \
+    -p 80:3000 \
+    --name join-notifier --restart=always discord-join-notifier
+    ```
     
