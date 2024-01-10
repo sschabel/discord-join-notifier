@@ -37,4 +37,19 @@ If you have Apache Maven installed, you could run it with the following command:
     
     ``mvn clean package``
 
-
+## Running in Docker
+1. Install Docker on your machine.
+2. Build the image from the Dockerfile contained in the root directory of this repository. See below for an example command:
+   
+   ``
+   sudo docker build --tag=discord-join-notifier:latest
+   ``
+3. Run the container using the image you created. See below for an example Linux terminal command with environment variables passed from the bare metal host machine:
+    
+    ``
+    sudo docker run -d -e JOIN_NOTIFIER_TEXT_CHANNEL_ID=$JOIN_NOTIFIER_TEXT_CHANNEL_ID \
+    -e JOIN_NOTIFIER_TOKEN=$JOIN_NOTIFIER_TOKEN \
+    -p 80:3000 \
+    --name join-notifier discord-join-notifier
+    ``
+    
