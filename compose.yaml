@@ -1,0 +1,12 @@
+version: "1"
+
+services:
+  join-notifier:
+    container_name: join-notifier
+    image: discord-join-notifier:latest
+    ports:
+      - "8080:8080/tcp"
+    environment:
+      JOIN_NOTIFIER_TOKEN: ${JOIN_NOTIFIER_TOKEN}
+      JOIN_NOTIFIER_TEXT_CHANNEL_ID: ${JOIN_NOTIFIER_TEXT_CHANNEL_ID}
+    restart: unless-stopped

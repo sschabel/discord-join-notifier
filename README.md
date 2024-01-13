@@ -48,14 +48,21 @@ mvn spring-boot:run
    ```sh
    sudo docker build --tag=discord-join-notifier:latest
    ```
-3. Run the container using the image you created. See below for an example Linux terminal command with environment variables passed from the bare metal host machine:
+3. Run the container using the image you created. See below for Docker Compose and Docker Run commands in a Linux terminal which include environment variables passed from the bare metal host machine:
+
+    ```sh
+    # Make sure to run this command in your join-notifer directory. It uses the compose.yaml
+    # the -d argument will make join-notifier run detached
+    sudo docker compose -d
+    ```
+    or if you want to just use Docker Run:
     ```sh
     sudo docker run -d -e JOIN_NOTIFIER_TEXT_CHANNEL_ID=$JOIN_NOTIFIER_TEXT_CHANNEL_ID \
     -e JOIN_NOTIFIER_TOKEN=$JOIN_NOTIFIER_TOKEN \
     -p 80:3000 \
     --name join-notifier discord-join-notifier
     ```
-    or if you want to always have the container restarted:
+    or if you want to use Docker Run and always have the container restarted:
     ```sh
     sudo docker run -d -e JOIN_NOTIFIER_TEXT_CHANNEL_ID=$JOIN_NOTIFIER_TEXT_CHANNEL_ID \
     -e JOIN_NOTIFIER_TOKEN=$JOIN_NOTIFIER_TOKEN \
