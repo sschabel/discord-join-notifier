@@ -6,6 +6,8 @@ services:
     image: discord-join-notifier:latest
     ports:
       - "8080:8080/tcp"
+    volumes:
+      - /opt/join-notifier:/logs
     environment:
       JOIN_NOTIFIER_TOKEN: ${JOIN_NOTIFIER_TOKEN}
       JOIN_NOTIFIER_TEXT_CHANNEL_ID: ${JOIN_NOTIFIER_TEXT_CHANNEL_ID}
