@@ -49,8 +49,8 @@ mvn spring-boot:run
    ```sh
    sudo docker build --tag=discord-join-notifier:latest
    ```
-   > [!NOTE]
-   > If you did not change the ``Dockerfile``, you must build the docker image in the same directory of where you checked out this codebase since the ``Dockerfile`` needs the JAR built in the ``target`` directory.
+> [!NOTE]
+> If you did not change the ``Dockerfile``, you must build the docker image in the same directory of where you checked out this codebase since the ``Dockerfile`` needs the JAR built in the ``target`` directory.
 3. Run the container using the image you created. See below for Docker Compose and Docker Run commands in a Linux terminal which include environment variables passed from the bare metal host machine:
 
     ```sh
