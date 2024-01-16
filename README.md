@@ -82,9 +82,9 @@ An issue may occur with being able to resolve ``discord.com`` from your Docker c
 To resolve this problem, follow the below steps (found from here: https://unix.stackexchange.com/questions/647996/docker-container-dns-not-working-with-pihole):
 1. If you do not have ``openresolv`` installed, run the following command:
     ```sh
-    sudo apt install openresolv
+    sudo apt-get install openresolv
     ```
-2. Open the ```/etc/resolvconf.conf`` file and uncomment the following line:
+2. Open the ``/etc/resolvconf.conf`` file and uncomment the following line:
     ```
     # If you run a local name server, you should uncomment the below line and
     # configure your subscribers configuration files below.
