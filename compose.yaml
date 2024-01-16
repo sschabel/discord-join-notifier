@@ -7,7 +7,7 @@ services:
     ports:
       - "8080:8080/tcp"
     volumes:
-      - /opt/join-notifier:/logs
+      - /opt/join-notifier/logs:/logs
     environment:
       JOIN_NOTIFIER_TOKEN: ${JOIN_NOTIFIER_TOKEN}
       JOIN_NOTIFIER_TEXT_CHANNEL_ID: ${JOIN_NOTIFIER_TEXT_CHANNEL_ID}
