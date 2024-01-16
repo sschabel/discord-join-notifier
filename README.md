@@ -4,6 +4,7 @@
  - [Host server setup](#host-server-setup) 
  - [Building the application](#building-the-application-to-fork-it-or-whatever)
  - [Running in Docker](#running-in-docker)
+ - [DNS Issue and solution](#dns-issue-and-solution)
 ## Overview
 The Join Notifier Discord Bot's main functionality is to simply message in a text channel when a user joins or leaves a voice channel. That way, server members will receive a notification from the text channel that someone joined or left the video channel.
 
@@ -44,6 +45,8 @@ mvn spring-boot:run
     ```
 
 ## Running in Docker
+> [!NOTE]
+> Reference the [DNS Issue and solution](#dns-issue-and-solution) section if you cannot seem to connect to ``discord.com`` due to a DNS issue.
 1. Install Docker on your machine (https://www.docker.com/). 
 2. Build the image from the Dockerfile contained in the root directory of this repository. See below for an example command:
    ```sh
@@ -73,3 +76,24 @@ mvn spring-boot:run
     --name join-notifier --restart=always discord-join-notifier
     ```
     
+## DNS Issue and solution
+An issue may occur with being able to resolve ``discord.com`` from your Docker container if you happen to have your DNS server within another Docker container on the same host as Join Notifier. I personally had this problem on a Raspberry Pi 5 when hosting Join Notifier in a docker container as well as Pi-Hole (as my DNS server as well) in a docker container.
+
+To resolve this problem, follow the below steps (found from here: https://unix.stackexchange.com/questions/647996/docker-container-dns-not-working-with-pihole):
+1. If you do not have ``openresolv`` installed, run the following command:
+    ```sh
+    sudo apt install openresolv
+    ```
+2. Open the ```/etc/resolvconf.conf`` file and uncomment the following line:
+    ```
+    # If you run a local name server, you should uncomment the below line and
+    # configure your subscribers configuration files below.
+    name_servers=127.0.0.1
+    ```
+3. Next, run the following command:
+    ```sh
+    sudo resolvconf -u
+    ```
+> [!NOTE]
+> This command will update your ``/etc/resolv.conf`` to have ``127.0.0.1``(locahost) as the nameserver.
+4. Your docker containers should now be able to use your localhost as the DNS server.
