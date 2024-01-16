@@ -17,6 +17,7 @@ In order to get Join Notifier working you must setup the following environment v
 |----|-------------|
 |JOIN_NOTIFIER_TEXT_CHANNEL_ID|You can get this ID by right clicking the text channel you want join notifier to message in.|
 |JOIN_NOTIFIER_TOKEN|You'll have to get this when you create your custom app in the Discord Developer Portal (https://discord.com/developers).|
+|JOIN_NOTIFIER_LOGS|Set the path you want to use for the log directory on the host machine. This variable is used in the compose.yaml. An example path, for Linux, is the following: ``/opt/join-notifier/logs``|
 
 Then, since Join Notifier is a Spring Boot application, you can run it using the following command in a console:
 ```sh
@@ -48,6 +49,8 @@ mvn spring-boot:run
    ```sh
    sudo docker build --tag=discord-join-notifier:latest
    ```
+   > [!NOTE]
+   > If you did not change the ``Dockerfile``, you must build the docker image in the same directory of where you checked out this codebase since the ``Dockerfile`` needs the JAR built in the ``target`` directory.
 3. Run the container using the image you created. See below for Docker Compose and Docker Run commands in a Linux terminal which include environment variables passed from the bare metal host machine:
 
     ```sh
