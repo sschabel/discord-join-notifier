@@ -95,5 +95,5 @@ To resolve this problem, follow the below steps (found from here: https://unix.s
     sudo resolvconf -u
     ```
 > [!NOTE]
-> This command will update your ``/etc/resolv.conf`` to have ``127.0.0.1``(locahost) as the nameserver.
+> This command will update your ``/etc/resolv.conf`` to have ``127.0.0.1``(localhost) as the nameserver.
 4. Your docker containers should now be able to use your localhost as the DNS server.
